@@ -1,0 +1,16 @@
+{% extends "basic.html" %}
+
+{% block title %}{{ question.question }}{% endblock %}
+
+{% block breadcrumb %}
+<li>Question</li>
+{% endblock %}
+
+{% block content %}
+<p class="breadcrumb-item active">{{ question.question }}</p>
+<p><small class="text-muted d-block">{{ question.created_at }}</small></p>
+
+  <div class="content">
+    {{ question.message}}
+  </div>
+{% endblock %}
