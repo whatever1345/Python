@@ -26,6 +26,9 @@ class Topic(models.Model):
         self.slug = slugify(self.title)
         super(Topic, self).save(*args, **kwargs)
 
+    def get_comments_count(self):
+        return Comment.objects.filter(topic=self).count()
+
 class Comment(models.Model):
     message = models.TextField(default="message")
     topic = models.ForeignKey(Topic, related_name="comments", on_delete=models.CASCADE)

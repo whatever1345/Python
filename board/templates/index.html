@@ -9,7 +9,7 @@
 {% block content %}
 
 <table class="table">
-    <thead class="thead-dark">
+    <thead class="thead-inverse">
         <tr>
             <th>Topic</th>
             <th>Likes</th>
@@ -29,7 +29,7 @@
                 </small>
             </td>
             <td class="align-middle">0</td>
-            <td class="align-middle">0</td>
+            <td class="align-middle">{{ topic.get_comments_count }}</td>
           </tr>
         {% endfor %}
     </tbody>

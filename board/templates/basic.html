@@ -24,7 +24,7 @@
         {% if user.is_authenticated %}
          <ul class="navbar-nav ml-auto">
            <li class="nav-item"><a class="nav-link">{{ user.username }}</a></li>
-           <li class="nav-item"><a class="nav-link" href="{% url 'accounts:logout' %}">Log out</a></li>
+           <li class="nav-item"><a class="nav-link btn btn-primary btn-block" href="{% url 'accounts:logout' %}">Log out</a></li>
          </ul>
         {% else %}
           <form class="form-inline ml-auto">
@@ -50,6 +50,8 @@
          {% endblock %}
      </div>
      {% endblock body %}
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
 </html>

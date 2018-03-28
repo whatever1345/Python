@@ -13,11 +13,13 @@
 </div>
 
 <table class="table">
-    <thead class="thead-dark">
+    <thead class="thead-inverse">
         <tr>
             <th>Topic</th>
+            <th>Starter</th>
             <th>Likes</th>
             <th>Comment</th>
+            <th>On Date</th>
         </tr>
     </thead>
     <tbody>
@@ -25,13 +27,11 @@
           <tr>
             <td>
                 <a href="{% url 'question:detail' question.slug %}">{{ question.question }}</a>
-                <small class="text-muted d-block">{{ question.created_at }}</small>
-                <small class="text-muted d-block">
-                   By: {{ question.starter }}
-                </small>
             </td>
+            <td>{{ question.starter.username }}</td>
             <td class="align-middle">0</td>
             <td class="align-middle">0</td>
+            <td>{{ question.created_at }}</td>
           </tr>
         {% endfor %}
     </tbody>

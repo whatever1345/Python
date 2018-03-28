@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load humanize %}
+
 {% block title %}{{ topic.title }}{% endblock %}
 
 {% block breadcrumb %}
@@ -14,9 +16,11 @@
     {{ topic.content}}
   </div>
 
-  <div class="mb-4">
-    <a href="#" class="btn btn-primary" role="button">Comment</a>
-  </div>
+  <form method="post" class="mb-4">
+    {% csrf_token %}
+    {% include 'includes/form.html' %}
+    <button type="submit" class="btn btn-success">Comment</button>
+  </form>
 
   {% for comment in topic.comments.all %}
     <div class="card mb-2">
@@ -31,7 +35,7 @@
                 <strong class="text-muted">{{ comment.created_by.username }}</strong>
               </div>
               <div class="col-6 text-right">
-                <small class="text-muted">{{ comment.created_at }}</small>
+                <small class="text-muted">{{ comment.created_at|naturaltime }}</small>
               </div>
             </div>
             {{ comment.message }}
