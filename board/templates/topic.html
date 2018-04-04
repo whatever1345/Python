@@ -13,7 +13,7 @@
 
 {% block content %}
   <div class="content">
-    {{ topic.content}}
+    {{ topic.content|linebreaks }}
   </div>
 
   <form method="post" class="mb-4">
@@ -38,7 +38,7 @@
                 <small class="text-muted">{{ comment.created_at|naturaltime }}</small>
               </div>
             </div>
-            {{ comment.message }}
+            {{ comment.message|linebreaks }}
             {% if comment.created_by == user %}
               <div class="mt-3">
                 <a href="#" class="btn btn-primary btn-sm" role="button">Edit</a>

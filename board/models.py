@@ -17,6 +17,7 @@ class Topic(models.Model):
     description = models.CharField(max_length=150, default="desc")
     genre = models.ManyToManyField(Genre, related_name="topics")
     slug = models.SlugField(null=False, unique=True)
+    views = models.PositiveIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -28,6 +29,10 @@ class Topic(models.Model):
 
     def get_comments_count(self):
         return Comment.objects.filter(topic=self).count()
+
+    def sort_by(self):
+        return Topic.objects.filter.order_by('-created_at')
+
 
 class Comment(models.Model):
     message = models.TextField(default="message")

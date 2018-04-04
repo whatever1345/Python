@@ -12,6 +12,7 @@
     <thead class="thead-inverse">
         <tr>
             <th>Topic</th>
+            <th>Views</th>
             <th>Likes</th>
             <th>Comment</th>
         </tr>
@@ -28,6 +29,7 @@
                 {% endfor %}
                 </small>
             </td>
+            <td class="align-middle">{{ topic.views }}</td>
             <td class="align-middle">0</td>
             <td class="align-middle">{{ topic.get_comments_count }}</td>
           </tr>
